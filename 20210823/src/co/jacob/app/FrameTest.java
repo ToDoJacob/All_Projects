@@ -9,7 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class FrameTest extends JFrame{
+public class FrameTest extends JFrame implements ActionListener {
+	
 	JButton btn1, btn2, btn3;
 	
 	public FrameTest() {
@@ -24,19 +25,34 @@ public class FrameTest extends JFrame{
 		//2.컴포넌트 속성을 변경
 		btn1.setBackground(Color.CYAN);
 		//3. 이벤트핸들러
-		btn1.addActionListener(new ActionListener() {
+		btn1.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				btn1.setText("익명객체");
+				
+			}} );
+			
+	
+		//4. 패널(부모)에 연결
+		panel.add(btn1);
+		
+		
+		
+		btn2 = new JButton("버튼2");
+		btn2.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				setTitle("클릭됨!!");
+				btn2.setText("바꼈다");
 			}
 		});
-		//4. 패널(부모)에 연결
-		panel.add(btn1);
-		btn2 = new JButton("버튼2");
 		btn2.setBackground(Color.CYAN);
 		panel.add(btn2);
+		
+		
 		btn3 = new JButton("버튼3");
+		btn3.addActionListener(this);
 		btn3.setBackground(Color.CYAN);
 		panel.add(btn3);
 		
@@ -51,6 +67,26 @@ public class FrameTest extends JFrame{
 		new FrameTest();
 		
 		
+		
 	}
 
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+//이벤트 핸들러(구현클래스)
+//중첩클래스(내부클래스 - 외부클래스의 필드에 접근가능)
+//class MyActionListener implements ActionListener{
+//
+//	@Override
+//	public void actionPerformed(ActionEvent e) {
+//		System.out.println("클릭됨");
+//		System.out.println(((JButton)e.getSource()).getX());
+//		btn2.setText("변경됨");
+//		
+//	}
+//}
 }
