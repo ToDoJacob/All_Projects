@@ -5,6 +5,13 @@ public class Memo {
 	private String date;
 	private String content;
 	
+	public Memo() {}
+	public Memo(String no , String date, String content) {
+		this.no = no;
+		this.date = date;
+		this.content = content;
+	}
+	
 	public String getNo() {
 		return no;
 	}
@@ -22,5 +29,10 @@ public class Memo {
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	@Override
+	public String toString() {
+		
+		return no +","+this.getDate()+","+getContent()+"\n";
 	}
 }
