@@ -7,15 +7,15 @@ public class MemoApp {
 	public static void main(String[] args) {
 		MemoList memos = new MemoListImpl();
 		
-		//¹øÈ£
+		//ï¿½ï¿½È£
 //		int no = scanner.nextInt();
-		int no = ScannerUtil.readInt("¹øÈ£");
-		//³¯Â¥
+		int no = ScannerUtil.readInt("ï¿½ï¿½È£");
+		//ï¿½ï¿½Â¥
 //		String date = scanner.next();
-		String date = ScannerUtil.readDate("³¯Â¥");
-		//³»¿ë
+		String date = ScannerUtil.readDate("ï¿½ï¿½Â¥");
+		//ï¿½ï¿½ï¿½ï¿½
 //		String content = scanner.next();
-		String content = ScannerUtil.readMultiLine();
+		String content = ScannerUtil.readMultiLine()
 		
 		
 		memos.input(new Memo(no, date,content));
@@ -25,10 +25,10 @@ public class MemoApp {
 			System.out.println(memo.getNo()+ ":" + memo.getDate());;
 		}
 		
-		//¹øÈ£
-		no = ScannerUtil.readInt("»èÁ¦¹øÈ£");
-		//³¯Â¥
-		date = ScannerUtil.readDate("»èÁ¦³¯Â¥");
+		//ï¿½ï¿½È£
+		no = ScannerUtil.readInt("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£");
+		//ï¿½ï¿½Â¥
+		date = ScannerUtil.readDate("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¥");
 		memos.delete(no,date);
 		
 		

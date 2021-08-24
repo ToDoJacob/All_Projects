@@ -10,15 +10,15 @@ public class MemoListImpl implements MemoList {
 	
 	@Override
 	public void input(Memo memo) {
-//		//번호
-////		int no = scanner.nextInt();
-//		int no = ScannerUtil.readInt();
-//		//날짜
-////		String date = scanner.next();
-//		String date = ScannerUtil.readDate();
-//		//내용
-////		String content = scanner.next();
-//		String content = ScannerUtil.readMultiLine("끝내고 싶으면 .end 만드세요");
+		//번호
+//		int no = scanner.nextInt();
+		int no = ScannerUtil.readInt();
+		//날짜
+//		String date = scanner.next();
+		String date = ScannerUtil.readDate();
+		//내용
+//		String content = scanner.next();
+		String content = ScannerUtil.readMultiLine("끝내고 싶으면 .end 만드세요");
 //		//리스트에 추가
 //		list.add(new Memo(no, date, content));
 		list.add(memo);

@@ -7,6 +7,7 @@ public class MemoApp {
 	public static void main(String[] args) {
 		MemoList memos = new MemoListImpl();
 		
+		
 		//번호
 //		int no = scanner.nextInt();
 		int no = ScannerUtil.readInt("번호");
@@ -15,7 +16,7 @@ public class MemoApp {
 		String date = ScannerUtil.readDate("날짜");
 		//내용
 //		String content = scanner.next();
-		String content = ScannerUtil.readMultiLine();
+		String content = ScannerUtil.readMultiLine("내용");
 		
 		
 		memos.input(new Memo(no, date,content));
