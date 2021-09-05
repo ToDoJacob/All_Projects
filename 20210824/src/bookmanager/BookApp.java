@@ -8,15 +8,15 @@ public class BookApp {
 		bookApp.start();
 	}
 	
+	BookDAO bookDao = new BookDAO();
 	Scanner scanner = new Scanner(System.in);
 	BookStorage books = BookStorage.getInstance();
 	
 	public void start() {
-		books.saveData(new Book("a1","자바","자바를 배우자"));
-		books.saveData(new Book("b2","JSP","JSP 기초"));
-		books.saveData(new Book("c3","JSP응용","JSP 심화학습"));
-		books.saveData(new Book("d4","자바웹","JSP 응용"));
-		
+//		books.saveData(new Book("a1","자바","자바를 배우자"));
+//		books.saveData(new Book("b2","JSP","JSP 기초"));
+//		books.saveData(new Book("c3","JSP응용","JSP 심화학습"));
+//		books.saveData(new Book("d4","자바웹","JSP 응용"));
 		
 		int menu =0;
 		do {
@@ -46,12 +46,13 @@ public class BookApp {
 	      name = scanner.nextLine();
 	      System.out.print("CONTENT>");
 	      content = scanner.nextLine();
-//	      books.saveData(new Book(isbn,name,content));//리턴값이 false인 거라서 이대로 출력하면 false가나온다
-	      if(books.saveData(new Book(isbn,name,content))) {
-	    	 System.out.println("등록 완료");
-	      } else {
-	    	  System.out.println("등록 오류");
-	      }
+//	      books.saveData(new Book(isbn,name,nt));//리턴값이 false인 거라서 이대로 출력하면 false가나온다
+//	      if(books.saveData(new Book(isbn,name,content))) {
+	      
+	      bookDao.insert(new Book(isbn,name,content));
+	      //다른클래스의 메서드를 접근하는 방식
+	      //싱글톤(static 붙이는 방법) , 객체생성하는 방법, 메서드자체를 static으로 만들어주는방법
+	      
 	}
 	
 	
@@ -59,7 +60,9 @@ public class BookApp {
 		  String name;//문자열 선언
 	      System.out.print("NAME>");
 	      name = scanner.nextLine();//입력하는값을 네임(도서명)에 담는다
-	      if(books.deleteData(name)) {//입력하는 값을 담은 name(도서명)을 지웠으면 바디안에 내용실행 아니면 나머지 else바디 실행
+//	      if(books.deleteData(name)) {//입력하는 값을 담은 name(도서명)을 지웠으면 바디안에 내용실행 아니면 나머지 else바디 실행
+	      if(bookDao.delete(name)>0) {
+//	    	  System.out.println(bookDao.delete(name) + "건 삭제 완료");
 	    	  System.out.println("삭제 완료");
 	      }else {
 	      System.out.println("삭제 오류");
@@ -67,7 +70,8 @@ public class BookApp {
 	}
 
 	public void search() {
-		books.searchData();//search데이타 호출
+		bookDao.searchAll();
+//		books.searchData();//search데이타 호출
 		
 	}
 }
