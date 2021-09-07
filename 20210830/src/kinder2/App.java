@@ -4,12 +4,13 @@ import java.util.List;
 import java.util.Scanner;
 
 
-public class KinderApp {
+public class App {
 	static Scanner scn = new Scanner(System.in);
 	KinderDAO kinderDao = new KinderDAO();
+	TeacherDAO teacherDao = new TeacherDAO();
 	
 	public static void main(String[] args) {
-		KinderApp kinderApp = new KinderApp();
+		App kinderApp = new App();
 	
 		while(true) {
 			int menu = 0;
@@ -48,6 +49,9 @@ public class KinderApp {
 					kinderApp.removeT();
 				}
 				else if(menu2==3) {
+					System.out.println("수정> ");
+				}
+				else if(menu2==4) {
 					System.out.println("조회> ");
 //					input();
 				}else {
@@ -64,10 +68,12 @@ public class KinderApp {
 	}
 	
 	public void inputK() {
+		String kinderId = null;
 		String kinderName;
 		String kinderAge;
 		String kinderClass;
-		String phoneno;
+		String parentPhone;
+		String admissionDate = null;
 		System.out.print("학생이름> ");
 		kinderName = scn.nextLine();
 		System.out.print("나이> ");
@@ -75,25 +81,19 @@ public class KinderApp {
 		System.out.print("반> ");
 		kinderClass = scn.nextLine();
 		System.out.print("부모님 연락처> ");
-		phoneno = scn.nextLine();
-		kinderDao.insertK(new Kinder(kinderName, kinderAge, kinderClass, phoneno));
+		parentPhone = scn.nextLine();
+		kinderDao.insertK(new Kinder(kinderId, kinderName, kinderAge, kinderClass, parentPhone, admissionDate));
 		
 	}
 	public void inputT() {
-		String teacherId;
-		String team;
+		String charge;
 		String teacherName;
-		String entryDate;
-		System.out.print("선생님 번호> ");
-		teacherId = scn.nextLine();
 		System.out.print("선생님 성함> ");
 		teacherName = scn.nextLine();
 		System.out.print("담당반> ");
-		team = scn.nextLine();
-		System.out.print("입사일> ");
-		entryDate = scn.nextLine();
+		charge = scn.nextLine();
 		
-		kinderDao.insertT(new Kinder(teacherId, team, teacherName, entryDate));
+		teacherDao.insertT(new Teacher(teacherName,charge));
 		System.out.println("입력이 완료되었습니다.");
 	}
 	
@@ -112,7 +112,7 @@ public class KinderApp {
 		kinder.setKinderName(kinderName);
 		kinder.setKinderAge(kinderAge);
 		
-		List<Kinder> kinderList = kinderDao.serachKinder(kinder);
+		List<Kinder> kinderList = kinderDao.searchK(kinder);
 		for (Kinder kd : kinderList) {
 			System.out.println(kd.toString());
 		}
@@ -135,16 +135,16 @@ public class KinderApp {
 	}
 	
 	public void removeK() {
-		System.out.println("삭제할 학생코드 입력>>");
-		String kinderId = scn.nextLine();
+		System.out.println("삭제할 학생이름 입력>>");
+		String kinderName = scn.nextLine();
 		
-		kinderDao.deleteK(kinderId);
+		kinderDao.deleteK(kinderName);
 	}
 	public void removeT() {
-		System.out.println("삭제할 선생님코드 입력>>");
-		String teacherId = scn.nextLine();
+		System.out.println("삭제할 선생님이름 입력>>");
+		String teacherName = scn.nextLine();
 		
-		kinderDao.deleteK(teacherId);
+		kinderDao.deleteK(teacherName);
 	}
 	
 	public void modifyK() {

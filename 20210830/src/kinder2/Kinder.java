@@ -1,6 +1,5 @@
 package kinder2;
 
-import java.time.LocalDate;
 
 public class Kinder {
 	private String kinderId;
@@ -10,27 +9,28 @@ public class Kinder {
 	private String parentPhone;
 	private String admissionDate;
 	
-	private String teacherId;
-	private String teacherName;
-	private String entryDate;
+
 	
 	public Kinder() {}
-	public Kinder(String kinderName, String kinderAge, String kinderClass, String parentPhone) {
+	public Kinder(String kinderId, String kinderName, String kinderAge, String kinderClass, String parentPhone, String admissionDate) {
+		this.kinderId = kinderId;
 		this.kinderName = kinderName;
 		this.kinderAge = kinderAge;
 		this.kinderClass = kinderClass;
 		this.parentPhone = parentPhone;
+		this.admissionDate = admissionDate;
 	}
-	public Kinder(String teacherId, String teacherName, String kinderClass) {
-		this.teacherId = teacherId;
-		this.teacherName = teacherName;
-		this.kinderClass = kinderClass;
+	public Kinder(String kinderName) {
+		this.kinderName = kinderName;
+		this.kinderId = "";
+		this.kinderAge = "";
 	}
+
 			
 	@Override
 	public String toString() {
-		return "Kinder [kinderId=" + kinderId + ", kinderName=" + kinderName + ", kinderAge=" + kinderAge + ", kinderClass="
-				+ kinderClass + ", admissionDate=" + admissionDate + ", parentPhone=" + parentPhone + "]";
+		return "[원생번호 : " + kinderId + ", 원생이름 : " + kinderName + ", 원생나이 : " + kinderAge + ", 반 : "
+				+ kinderClass + ", 입학일 : " + admissionDate + ", 부모님연락처 : " + parentPhone + "]";
 	}
 	public String getKinderId() {
 		return kinderId;
@@ -44,12 +44,7 @@ public class Kinder {
 	public void setKinderName(String kinderName) {
 		this.kinderName = kinderName;
 	}
-	public String getTeacherId() {
-		return teacherId;
-	}
-	public void setTeacherId(String teacherId) {
-		this.teacherId = teacherId;
-	}
+	
 	public String getKinderAge() {
 		return kinderAge;
 	}
@@ -74,23 +69,6 @@ public class Kinder {
 	public void setParentPhone(String parentPhone) {
 		this.parentPhone = parentPhone;
 	}
-	public String getTeacherName() {
-		return teacherName;
-	}
-	public void setTeacherName(String teacherName) {
-		this.teacherName = teacherName;
-	}
-//	public String getTeamIncharge() {
-//		return teamIncharge;
-//	}
-//	public void setTeamIncharge(String teamIncharge) {
-//		this.teamIncharge = teamIncharge;
-//	}
-	public String getEntryDate() {
-		return entryDate;
-	}
-	public void setEntryDate(String entryDate) {
-		this.entryDate = entryDate;
-	}
-
+	
+	
 }
