@@ -34,6 +34,7 @@ public class Book {
 	public String toString() {
 		return isbn + "," + name;
 	}
+	
 //	@Override
 //	public int hashCode() {
 //		final int prime = 31;
@@ -48,6 +49,7 @@ public class Book {
 		Book target = (Book)obj;
 		return true;
 	}
+	
 
 	
 }
