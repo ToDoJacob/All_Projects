@@ -73,6 +73,7 @@ public class App {
 		parentPhone = scn.nextLine();
 		Kinder k = 	kinderDao.insertK(new Kinder(null, kinderName, kinderAge, kinderClass, parentPhone, null));
 		System.out.println("학생번호 : " + k.getKinderId() + "\t입학날짜 : " + k.getAdmissionDate());
+		//TODO 입학날짜 뒤에 00:00:00 안보이게 출력하는 방법 공부하기.
 	}
 
 	public void insertT() {
