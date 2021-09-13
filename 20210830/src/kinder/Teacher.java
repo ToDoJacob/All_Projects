@@ -1,4 +1,4 @@
-package kinder2;
+package kinder;
 
 public class Teacher {
 	private String teacherId;
@@ -7,9 +7,21 @@ public class Teacher {
 	private String kinderClass;
 	
 	public Teacher() {}
+	
 	public Teacher(String teacherName, String kinderClass) {
 		this.teacherName = teacherName;
 		this.kinderClass = kinderClass;
+	}
+	
+	public Teacher(String teacherName) {
+		this.teacherName = teacherName;
+	}
+	
+	public Teacher(String teacherId, String teacherName, String kinderClass, String entryDate) {
+		this.teacherId = teacherId;
+		this.teacherName = teacherName;
+		this.kinderClass = kinderClass;
+		this.entryDate = entryDate;
 	}
 	
 	@Override

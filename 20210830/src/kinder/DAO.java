@@ -1,4 +1,4 @@
-package kinder2;
+package kinder;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
